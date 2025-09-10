@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Speed detector</h1>
+
+
+     <input id="speedInput" type="number" placeholder="Enter speed (km/h)" /> <!--the input area where user enters their data-->
+
+  <!-- Button to check speed -->
+  <button onclick="speedDetector()">Check Speed</button>
+
+  <!-- Where the result will appear -->
+  <p id="result"></p>
+
+  <script>
+    function speedDetector() {
+      // get value from input field
+      let speed = document.getElementById("speedInput").value; // get the number the user input in the web page
+      speed = Number(speed); // convert to number
+
+      let resultText = ""; // variable to hold the message
+
+      if (speed <= 70) {
+        resultText = "OK";
+      } else {
+        let point = Math.floor((speed - 70) / 5);
+        if (point > 12) {
+          resultText = "License suspended";
+        } else {
+          resultText = "Points: " + point;
+        }
+      }
+
+      // show result on page instead of alert
+      document.getElementById("result").textContent = resultText;// shows message on the web page
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
